@@ -18,6 +18,9 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route("/squid/")
+def squidindex():
+    return render_template('squid.html')
 
 @app.route("/apn", methods=['POST'])
 def apn():
@@ -31,11 +34,24 @@ def apn():
 
     resp = make_response(render_template('mobileconfig/apn.mobileconfig',
                                          data=data))
-    resp.headers['Content-Disposition'] = 'attachment; filename="apn.mobileconfig"'
+    resp.headers['Content-Disposition'] = 'attachment; filename="ManSora-APN.mobileconfig"'
     resp.headers['Content-Type'] = 'application/x-apple-aspen-config'
     return resp
 
+@app.route("/squid/apn", methods=['POST'])
+def squidapn():
+    data = {}
+    data['name'] = request.form['name']
+    data['username'] = request.form['username']
+    data['password'] = b64encode(request.form['password'])
+    data['uuid'] = str(uuid4()).upper()
+
+    resp = make_response(render_template('mobileconfig/squid.mobileconfig',
+                                         data=data))
+    resp.headers['Content-Disposition'] = 'attachment; filename="ManSora-Squid.mobileconfig"'
+    resp.headers['Content-Type'] = 'application/x-apple-aspen-config'
+    return resp
 
 if __name__ == "__main__":
     app.debug = True
-    app.run()
+    app.run(host="127.0.0.1",port=5000)

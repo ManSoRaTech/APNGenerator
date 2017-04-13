@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>ManSora APN Generator</title>
+    <title>ManSora Squid Proxy APN Generator</title>
     <script src="{{ url_for('static', filename='js/jquery-2.1.4.js') }}"></script>
     <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/global.js') }}"></script>
@@ -25,7 +25,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="/" class="navbar-brand">ManSora APN Generator</a>
+                    <a href="/" class="navbar-brand">ManSora Squid Proxy APN Generator</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
@@ -43,7 +43,7 @@
                         <div class="panel-title">APN Settings</div>
                     </div>
                     <div class="panel-body">
-                        <form action="/apn" method="post">
+                        <form action="/squid/apn" method="post">
                             <div class="form-group">
                                 <label for="name">APN:</label>
                                 <input type="text" name="name" class="form-control" placeholder="required" id="name"/>
@@ -55,14 +55,6 @@
                             <div class="form-group">
                                 <label for="password">Password:</label>
                                 <input type="password" name="password" class="form-control" placeholder="optional" id="password"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="proxy_ip">Proxy Address:</label>
-                                <input type="text" name="proxy_ip" class="form-control" placeholder="optional" id="proxy_ip"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="port">Proxy Port:</label>
-                                <input type="text" name="port" class="form-control" placeholder="optional" id="port"/>
                             </div>
 
                             <button type="submit" class="btn btn-success btn-block">Generate</button>
