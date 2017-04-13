@@ -10,7 +10,8 @@ a flask fork of [APNManager](https://github.com/realityone/APNManager)
     python app.py
 
 然后浏览器访问  ：http://127.0.0.1:5000/  
-Squid Proxy 访问：http://127.0.0.1:5000/squid/  
+Squid Proxy 访问：http://127.0.0.1:5000/squid/ 
+Demo: https://apn.ime.moe   
 
 如果需要更改监听IP以及端口,请修改app.py里的以下行
 
